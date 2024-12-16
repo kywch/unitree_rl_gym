@@ -1,7 +1,7 @@
 import torch
 from torch import Tensor
 import numpy as np
-from isaacgym.torch_utils import quat_apply, normalize
+from legged_gym.utils.isaacgym_utils import quat_apply
 from typing import Tuple
 
 # @ torch.jit.script
@@ -24,3 +24,7 @@ def torch_rand_sqrt_float(lower, upper, shape, device):
     r = torch.where(r<0., -torch.sqrt(-r), torch.sqrt(r))
     r =  (r + 1.) / 2.
     return (upper - lower) * r + lower
+
+@torch.jit.script
+def normalize(x, eps: float = 1e-9):
+    return x / x.norm(p=2, dim=-1).clamp(min=eps, max=None).unsqueeze(-1)

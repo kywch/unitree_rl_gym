@@ -1,9 +1,10 @@
 
 from legged_gym.envs.base.legged_robot import LeggedRobot
 
-from isaacgym.torch_utils import *
+# from isaacgym.torch_utils import *
 from isaacgym import gymtorch, gymapi, gymutil
 import torch
+import numpy as np
 
 class H1_2Robot(LeggedRobot):
     

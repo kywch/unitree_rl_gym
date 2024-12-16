@@ -4,7 +4,7 @@ from warnings import WarningMessage
 import numpy as np
 import os
 
-from isaacgym.torch_utils import *
+# from isaacgym.torch_utils import *
 from isaacgym import gymtorch, gymapi, gymutil
 
 import torch
@@ -15,6 +15,7 @@ from legged_gym import LEGGED_GYM_ROOT_DIR
 from legged_gym.envs.base.base_task import BaseTask
 from legged_gym.utils.math import wrap_to_pi
 from legged_gym.utils.isaacgym_utils import get_euler_xyz as get_euler_xyz_in_tensor
+from legged_gym.utils.isaacgym_utils import quat_apply, quat_rotate_inverse, torch_rand_float, to_torch, get_axis_params
 from legged_gym.utils.helpers import class_to_dict
 from .legged_robot_config import LeggedRobotCfg
 
